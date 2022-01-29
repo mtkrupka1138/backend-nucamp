@@ -1,7 +1,8 @@
 const express = require('express');
 const Campsite = require('../models/campsite');
-
 const campsiteRouter = express.Router();
+
+
 
 campsiteRouter.route('/')
 .get((req, res, next) => {
@@ -37,6 +38,8 @@ campsiteRouter.route('/')
     .catch(err => next(err));
 });
 
+
+
 campsiteRouter.route('/:campsiteId')
 .get((req, res, next) => {
     Campsite.findById(req.params.campsiteId)
@@ -71,6 +74,8 @@ campsiteRouter.route('/:campsiteId')
     })
     .catch(err => next(err));
 });
+
+
 
 campsiteRouter.route('/:campsiteId/comments')
 .get((req, res, next) => {
@@ -134,6 +139,8 @@ campsiteRouter.route('/:campsiteId/comments')
     })
     .catch(err => next(err));
 });
+
+
 
 campsiteRouter.route('/:campsiteId/comments/:commentId')
 .get((req, res, next) => {
@@ -212,5 +219,7 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
     })
     .catch(err => next(err));
 });
+
+
 
 module.exports = campsiteRouter;
