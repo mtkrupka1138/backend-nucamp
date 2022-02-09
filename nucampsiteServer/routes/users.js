@@ -9,7 +9,7 @@ router.get("/", authenticate.verifyUser, authenticate.verifyAdmin, (req, res, ne
     User.find()
       .then((user) => {
         res.statusCode = 200;
-        res.setHeader('Content-Type", "application/json');
+        res.setHeader('Content-Type', 'application/json');
         res.json(user);
       })
       .catch((err) => next(err));
